@@ -1,0 +1,25 @@
+2024/02/07-15:13:54.274 36b4 Reusing MANIFEST C:\Users\Lenovo\Desktop\whbot\sel\Profile 1\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2024/02/07-15:13:54.275 36b4 Recovering log #336
+2024/02/07-15:13:54.286 36b4 Reusing old log C:\Users\Lenovo\Desktop\whbot\sel\Profile 1\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000336.log 
+2024/02/07-15:13:54.286 36b4 Delete type=2 #335
+2024/02/07-15:13:55.843 4e2c Level-0 table #341: started
+2024/02/07-15:13:55.854 4e2c Level-0 table #341: 184138 bytes OK
+2024/02/07-15:13:55.857 4e2c Delete type=0 #336
+2024/02/07-15:13:55.859 36b4 Manual compaction at level-0 from '\x00u\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00v\x00\x00\x00' @ 0 : 0; will stop at '\x00v\x00\x00\x05' @ 192404 : 1
+2024/02/07-15:13:55.859 36b4 Compacting 1@0 + 1@1 files
+2024/02/07-15:13:56.016 36b4 Generated table #342@0: 61588 keys, 1291211 bytes
+2024/02/07-15:13:56.016 36b4 Compacted 1@0 + 1@1 files => 1291211 bytes
+2024/02/07-15:13:56.019 36b4 compacted to: files[ 0 1 1 0 0 0 0 ]
+2024/02/07-15:13:56.019 36b4 Delete type=2 #341
+2024/02/07-15:13:56.020 36b4 Manual compaction at level-0 from '\x00v\x00\x00\x05' @ 192404 : 1 .. '\x00v\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/02/07-15:13:56.030 36b4 Level-0 table #344: started
+2024/02/07-15:13:56.036 36b4 Level-0 table #344: 466 bytes OK
+2024/02/07-15:13:56.039 36b4 Delete type=2 #338
+2024/02/07-15:13:56.039 36b4 Delete type=0 #340
+2024/02/07-15:13:56.040 36b4 Manual compaction at level-0 from '\x00v\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00w\x00\x00\x00' @ 0 : 0; will stop at '\x00v\x00\x00\x05' @ 192449 : 0
+2024/02/07-15:13:56.040 36b4 Compacting 1@0 + 1@1 files
+2024/02/07-15:13:56.126 36b4 Generated table #345@0: 61586 keys, 1291186 bytes
+2024/02/07-15:13:56.126 36b4 Compacted 1@0 + 1@1 files => 1291186 bytes
+2024/02/07-15:13:56.132 36b4 compacted to: files[ 0 1 1 0 0 0 0 ]
+2024/02/07-15:13:56.132 36b4 Delete type=2 #344
+2024/02/07-15:13:56.133 36b4 Manual compaction at level-0 from '\x00v\x00\x00\x05' @ 192449 : 0 .. '\x00w\x00\x00\x00' @ 0 : 0; will stop at (end)
