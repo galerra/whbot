@@ -1,3 +1,6 @@
-2024/02/07-15:13:53.083 4960 Reusing MANIFEST C:\Users\Lenovo\Desktop\whbot\sel\Profile 1\Local Storage\leveldb/MANIFEST-000001
-2024/02/07-15:13:53.089 4960 Recovering log #6
-2024/02/07-15:13:53.100 4960 Reusing old log C:\Users\Lenovo\Desktop\whbot\sel\Profile 1\Local Storage\leveldb/000006.log 
+2024/02/12-22:36:05.311 3768 Reusing MANIFEST C:\Users\Lenovo\Desktop\whbot\sel\Profile 1\Local Storage\leveldb/MANIFEST-000001
+2024/02/12-22:36:05.354 3768 Recovering log #27
+2024/02/12-22:36:05.368 3768 Reusing old log C:\Users\Lenovo\Desktop\whbot\sel\Profile 1\Local Storage\leveldb/000027.log 
+2024/02/12-22:36:14.282 47ac Level-0 table #30: started
+2024/02/12-22:36:14.306 47ac Level-0 table #30: 11555 bytes OK
+2024/02/12-22:36:14.312 47ac Delete type=0 #27

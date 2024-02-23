@@ -1,25 +1,24 @@
-2024/02/07-15:13:54.274 36b4 Reusing MANIFEST C:\Users\Lenovo\Desktop\whbot\sel\Profile 1\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2024/02/07-15:13:54.275 36b4 Recovering log #336
-2024/02/07-15:13:54.286 36b4 Reusing old log C:\Users\Lenovo\Desktop\whbot\sel\Profile 1\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000336.log 
-2024/02/07-15:13:54.286 36b4 Delete type=2 #335
-2024/02/07-15:13:55.843 4e2c Level-0 table #341: started
-2024/02/07-15:13:55.854 4e2c Level-0 table #341: 184138 bytes OK
-2024/02/07-15:13:55.857 4e2c Delete type=0 #336
-2024/02/07-15:13:55.859 36b4 Manual compaction at level-0 from '\x00u\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00v\x00\x00\x00' @ 0 : 0; will stop at '\x00v\x00\x00\x05' @ 192404 : 1
-2024/02/07-15:13:55.859 36b4 Compacting 1@0 + 1@1 files
-2024/02/07-15:13:56.016 36b4 Generated table #342@0: 61588 keys, 1291211 bytes
-2024/02/07-15:13:56.016 36b4 Compacted 1@0 + 1@1 files => 1291211 bytes
-2024/02/07-15:13:56.019 36b4 compacted to: files[ 0 1 1 0 0 0 0 ]
-2024/02/07-15:13:56.019 36b4 Delete type=2 #341
-2024/02/07-15:13:56.020 36b4 Manual compaction at level-0 from '\x00v\x00\x00\x05' @ 192404 : 1 .. '\x00v\x00\x00\x00' @ 0 : 0; will stop at (end)
-2024/02/07-15:13:56.030 36b4 Level-0 table #344: started
-2024/02/07-15:13:56.036 36b4 Level-0 table #344: 466 bytes OK
-2024/02/07-15:13:56.039 36b4 Delete type=2 #338
-2024/02/07-15:13:56.039 36b4 Delete type=0 #340
-2024/02/07-15:13:56.040 36b4 Manual compaction at level-0 from '\x00v\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00w\x00\x00\x00' @ 0 : 0; will stop at '\x00v\x00\x00\x05' @ 192449 : 0
-2024/02/07-15:13:56.040 36b4 Compacting 1@0 + 1@1 files
-2024/02/07-15:13:56.126 36b4 Generated table #345@0: 61586 keys, 1291186 bytes
-2024/02/07-15:13:56.126 36b4 Compacted 1@0 + 1@1 files => 1291186 bytes
-2024/02/07-15:13:56.132 36b4 compacted to: files[ 0 1 1 0 0 0 0 ]
-2024/02/07-15:13:56.132 36b4 Delete type=2 #344
-2024/02/07-15:13:56.133 36b4 Manual compaction at level-0 from '\x00v\x00\x00\x05' @ 192449 : 0 .. '\x00w\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/02/12-22:36:06.381 1494 Reusing MANIFEST C:\Users\Lenovo\Desktop\whbot\sel\Profile 1\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2024/02/12-22:36:06.383 1494 Recovering log #644
+2024/02/12-22:36:06.397 1494 Reusing old log C:\Users\Lenovo\Desktop\whbot\sel\Profile 1\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000644.log 
+2024/02/12-22:36:07.690 4cf8 Level-0 table #650: started
+2024/02/12-22:36:07.707 4cf8 Level-0 table #650: 157208 bytes OK
+2024/02/12-22:36:07.711 4cf8 Delete type=0 #644
+2024/02/12-22:36:07.711 4cf8 Manual compaction at level-0 from '\x00\xcd\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\xce\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/02/12-22:36:07.714 1494 Level-0 table #652: started
+2024/02/12-22:36:07.725 1494 Level-0 table #652: 533 bytes OK
+2024/02/12-22:36:07.728 1494 Delete type=0 #649
+2024/02/12-22:36:07.729 1494 Manual compaction at level-0 from '\x00\xce\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\xcf\x00\x00\x00' @ 0 : 0; will stop at '\x00\xce\x00\x00\x05' @ 546447 : 0
+2024/02/12-22:36:07.729 1494 Compacting 1@0 + 1@1 files
+2024/02/12-22:36:07.741 1494 Generated table #653@0: 3440 keys, 74033 bytes
+2024/02/12-22:36:07.741 1494 Compacted 1@0 + 1@1 files => 74033 bytes
+2024/02/12-22:36:07.743 1494 compacted to: files[ 0 1 1 0 0 0 0 ]
+2024/02/12-22:36:07.744 1494 Delete type=2 #652
+2024/02/12-22:36:07.744 1494 Manual compaction at level-0 from '\x00\xce\x00\x00\x05' @ 546447 : 0 .. '\x00\xcf\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/02/12-22:36:09.595 1494 Compacting 1@1 + 1@2 files
+2024/02/12-22:36:09.693 1494 Generated table #654@1: 61022 keys, 1736413 bytes
+2024/02/12-22:36:09.693 1494 Compacted 1@1 + 1@2 files => 1736413 bytes
+2024/02/12-22:36:09.696 1494 compacted to: files[ 0 0 1 0 0 0 0 ]
+2024/02/12-22:36:09.696 1494 Delete type=2 #647
+2024/02/12-22:36:09.697 1494 Delete type=2 #650
+2024/02/12-22:36:09.697 1494 Delete type=2 #653

@@ -1,25 +1,24 @@
-2024/02/07-14:54:11.061 4e48 Reusing MANIFEST C:\Users\Lenovo\Desktop\whbot\sel\Profile 1\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2024/02/07-14:54:11.062 4e48 Recovering log #329
-2024/02/07-14:54:11.068 4e48 Reusing old log C:\Users\Lenovo\Desktop\whbot\sel\Profile 1\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000329.log 
-2024/02/07-14:54:11.069 4e48 Delete type=2 #328
-2024/02/07-14:54:12.619 5354 Level-0 table #334: started
-2024/02/07-14:54:12.627 5354 Level-0 table #334: 117274 bytes OK
-2024/02/07-14:54:12.631 5354 Delete type=0 #329
-2024/02/07-14:54:12.632 5354 Manual compaction at level-0 from '\x00s\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00t\x00\x00\x00' @ 0 : 0; will stop at '\x00t\x00\x00\x05' @ 185218 : 1
-2024/02/07-14:54:12.632 5354 Compacting 1@0 + 1@1 files
-2024/02/07-14:54:12.719 5354 Generated table #335@0: 58942 keys, 1249488 bytes
-2024/02/07-14:54:12.719 5354 Compacted 1@0 + 1@1 files => 1249488 bytes
-2024/02/07-14:54:12.721 5354 compacted to: files[ 0 1 1 0 0 0 0 ]
-2024/02/07-14:54:12.722 5354 Delete type=2 #334
-2024/02/07-14:54:12.723 4e48 Manual compaction at level-0 from '\x00t\x00\x00\x05' @ 185218 : 1 .. '\x00t\x00\x00\x00' @ 0 : 0; will stop at (end)
-2024/02/07-14:54:12.724 4e48 Level-0 table #337: started
-2024/02/07-14:54:12.730 4e48 Level-0 table #337: 249 bytes OK
-2024/02/07-14:54:12.733 4e48 Delete type=2 #331
-2024/02/07-14:54:12.734 4e48 Delete type=0 #333
-2024/02/07-14:54:12.735 4e48 Manual compaction at level-0 from '\x00t\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00u\x00\x00\x00' @ 0 : 0; will stop at '\x00t\x00\x00\x05' @ 185263 : 0
-2024/02/07-14:54:12.735 4e48 Compacting 1@0 + 1@1 files
-2024/02/07-14:54:12.827 4e48 Generated table #338@0: 58940 keys, 1249400 bytes
-2024/02/07-14:54:12.827 4e48 Compacted 1@0 + 1@1 files => 1249400 bytes
-2024/02/07-14:54:12.830 4e48 compacted to: files[ 0 1 1 0 0 0 0 ]
-2024/02/07-14:54:12.830 4e48 Delete type=2 #337
-2024/02/07-14:54:12.831 4e48 Manual compaction at level-0 from '\x00t\x00\x00\x05' @ 185263 : 0 .. '\x00u\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/02/12-22:34:59.635 e7c Reusing MANIFEST C:\Users\Lenovo\Desktop\whbot\sel\Profile 1\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2024/02/12-22:34:59.636 e7c Recovering log #637
+2024/02/12-22:34:59.645 e7c Reusing old log C:\Users\Lenovo\Desktop\whbot\sel\Profile 1\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000637.log 
+2024/02/12-22:35:00.818 48d4 Level-0 table #643: started
+2024/02/12-22:35:00.841 48d4 Level-0 table #643: 154264 bytes OK
+2024/02/12-22:35:00.844 48d4 Delete type=0 #637
+2024/02/12-22:35:00.845 2c50 Manual compaction at level-0 from '\x00\xcb\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\xcc\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/02/12-22:35:00.847 2c50 Level-0 table #645: started
+2024/02/12-22:35:00.853 2c50 Level-0 table #645: 476 bytes OK
+2024/02/12-22:35:00.857 2c50 Delete type=0 #642
+2024/02/12-22:35:00.858 2c50 Manual compaction at level-0 from '\x00\xcc\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\xcd\x00\x00\x00' @ 0 : 0; will stop at '\x00\xcc\x00\x00\x05' @ 540504 : 0
+2024/02/12-22:35:00.858 2c50 Compacting 1@0 + 1@1 files
+2024/02/12-22:35:00.869 2c50 Generated table #646@0: 3311 keys, 72720 bytes
+2024/02/12-22:35:00.869 2c50 Compacted 1@0 + 1@1 files => 72720 bytes
+2024/02/12-22:35:00.872 2c50 compacted to: files[ 0 1 1 0 0 0 0 ]
+2024/02/12-22:35:00.872 2c50 Manual compaction at level-0 from '\x00\xcc\x00\x00\x05' @ 540504 : 0 .. '\x00\xcd\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/02/12-22:35:02.987 e7c Compacting 1@1 + 1@2 files
+2024/02/12-22:35:03.196 e7c Generated table #647@1: 60274 keys, 1720019 bytes
+2024/02/12-22:35:03.196 e7c Compacted 1@1 + 1@2 files => 1720019 bytes
+2024/02/12-22:35:03.198 e7c compacted to: files[ 0 0 1 0 0 0 0 ]
+2024/02/12-22:35:03.199 e7c Delete type=2 #640
+2024/02/12-22:35:03.199 e7c Delete type=2 #643
+2024/02/12-22:35:03.199 e7c Delete type=2 #645
+2024/02/12-22:35:03.199 e7c Delete type=2 #646
