@@ -1,6 +1,6 @@
 from aiogram import types
 from aiogram.utils.keyboard import InlineKeyboardBuilder
-
+import asyncio
 
 def buildCreatorBoard():
     kb = [

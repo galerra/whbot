@@ -4,7 +4,7 @@ import time
 from selenium.webdriver.support.ui import WebDriverWait
 from datetime import datetime
 
-async def sendMessageToUser(userPhone, message):
+def sendMessageToUser(userPhone, message):
     userPhone = phoneNormalized(userPhone)
     driver = chromeSetup()
     wait = WebDriverWait(driver, 30)

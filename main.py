@@ -56,7 +56,7 @@
 # options = webdriver.ChromeOptions()
 # options.add_argument('--allow-profiles-outside-user-dir')
 # options.add_argument('--enable-profile-shortcut-manager')
-# options.add_argument(r'user-data-dir=C:\Users\Lenovo\Desktop\whbot\sel') # УКАЖИТЕ ПУТЬ ГДЕ ЛЕЖИТ ВАШ ФАЙЛ. Советую создать отдельную папку.
+# options.add_argument(r'user-data-dir=C:\Users\Lenovo\Desktop\Britva_bot\sel') # УКАЖИТЕ ПУТЬ ГДЕ ЛЕЖИТ ВАШ ФАЙЛ. Советую создать отдельную папку.
 # options.add_argument('--profile-directory=Profile 1')
 # options.add_argument('--profiling-flush=n')
 # options.add_argument('--enable-aggressive-domstorage-flushing')
