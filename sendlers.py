@@ -12,18 +12,18 @@ def sendMessageToUser(userPhone, message):
     clickOnSendButtom(driver, wait)
     time.sleep(5)
 
-async def sendTimeMessageToUser(userPhone, message, visit_date, visit_time: str):
-    current_time = time.localtime()
-    t = visit_time.split(":")
-    left_time = datetime.strptime(
-        f"{t[0]}:{t[1]}:0", "%H:%M:%S"
-    ) - datetime.strptime(
-        f"{current_time.tm_hour}:{current_time.tm_min}:{current_time.tm_sec}",
-        "%H:%M:%S",
-    )
-    sleep_time = left_time.seconds - 3600
-    time.sleep(sleep_time)
-    await sendMessageToUser(userPhone, message)
+# async def sendTimeMessageToUser(userPhone, message, visit_date, visit_time: str):
+#     current_time = time.localtime()
+#     t = visit_time.split(":")
+#     left_time = datetime.strptime(
+#         f"{t[0]}:{t[1]}:0", "%H:%M:%S"
+#     ) - datetime.strptime(
+#         f"{current_time.tm_hour}:{current_time.tm_min}:{current_time.tm_sec}",
+#         "%H:%M:%S",
+#     )
+#     sleep_time = left_time.seconds - 3600
+#     time.sleep(sleep_time)
+#     await sendMessageToUser(userPhone, message)
 
 
 

@@ -6,7 +6,7 @@ class MessageFilter(Filter):
         self.my_text = my_text
     def isCorrectFunction(self, userStatus):
         statusFunctions = {
-                    "creator": ["/start", "создать уведомление", "добавить админа", "удалить админа", "записаться", "whatsapp", "telegram"],
+                    "creator": ["/start", "создать уведомление", "добавить админа", "удалить админа", "записаться", "whatsapp", "telegram", "удалить"],
                     "admin": ["/start", "создать уведомление", "whatsapp", "telegram"], "customer": ["/start", "записаться"]}
         return self.my_text.lower() in statusFunctions[userStatus]
     async def __call__(self, message: Message) -> bool:

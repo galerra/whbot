@@ -16,5 +16,5 @@ def getUserStatus(userId): #теперь запросы в бд
     db = staff()
     status = db.getStatus(userId)
     if len(status) == 0:
-        status = [('creator',)]
-    return status[0][0]
+        status = 'creator'
+    return status

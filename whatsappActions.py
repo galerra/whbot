@@ -34,7 +34,11 @@ def chromeSetup():
     return driver
 
 def clickOnSendButtom(driver, wait):
+    # wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR,
+    #                                        "#main > footer > div._2lSWV._3cjY2.copyable-area > div > span:nth-child(2) > div > div._1VZX7 > div._2xy_p._3XKXx > button > span")))
     wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR,
-                                           "#main > footer > div._2lSWV._3cjY2.copyable-area > div > span:nth-child(2) > div > div._1VZX7 > div._2xy_p._3XKXx > button > span")))
+                                           "#main > footer > div._ak1k._ahmw.copyable-area > div > span:nth-child(2) > div > div._ak1r > div._ak1t._ak1u > button > span")))
+    # driver.find_element(By.CSS_SELECTOR,
+    #                     "#main > footer > div._2lSWV._3cjY2.copyable-area > div > span:nth-child(2) > div > div._1VZX7 > div._2xy_p._3XKXx > button > span").click()
     driver.find_element(By.CSS_SELECTOR,
-                        "#main > footer > div._2lSWV._3cjY2.copyable-area > div > span:nth-child(2) > div > div._1VZX7 > div._2xy_p._3XKXx > button > span").click()
+                            "#main > footer > div._ak1k._ahmw.copyable-area > div > span:nth-child(2) > div > div._ak1r > div._ak1t._ak1u > button").click()

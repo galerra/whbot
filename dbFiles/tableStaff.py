@@ -34,11 +34,24 @@ class staff(abstractBase):
         with self.connection.cursor() as cursor:
             command = """SELECT status FROM staff
                          WHERE staff.telegram_id = %s"""
-            cursor.execute(command, telegramId)
-            return cursor.fetchall()
+            cursor.execute(command, (telegramId,))
+            return cursor.fetchall()[0][0]
+    def getName(self, telegramId):
+        with self.connection.cursor() as cursor:
+            command = """SELECT name FROM staff
+                         WHERE staff.telegram_id = %s"""
+            cursor.execute(command, (telegramId,))
+            return cursor.fetchall()[0][0]
+    def selectData(self):
+        with self.connection.cursor() as cursor:
+            command = """SELECT * FROM staff"""
+            cursor.execute(command)
+            records = cursor.fetchall()
+            return records
     def __del__(self):
         self.connection.close()
 
 # db = staff()
 # db.createTable()
 # db.insertToTable(("Шуруха", "Артем", "Викторович", "creator", "815109033", "+79614951406"))
+
