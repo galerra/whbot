@@ -48,10 +48,16 @@ class staff(abstractBase):
             cursor.execute(command)
             records = cursor.fetchall()
             return records
+    def deleteData(self):
+        with self.connection.cursor() as cursor:
+            command = """TRUNCATE TABLE staff"""
+            cursor.execute(command)
     def __del__(self):
         self.connection.close()
 
-# db = staff()
+#
+db = staff()
+# db.deleteData()
 # db.createTable()
 # db.insertToTable(("Шуруха", "Артем", "Викторович", "creator", "815109033", "+79614951406"))
 

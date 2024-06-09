@@ -21,6 +21,7 @@ def buildAdminBoard():
     kb = [
         [
             types.KeyboardButton(text="Создать уведомление"),
+            types.KeyboardButton(text="Расписание"),
         ],
     ]
     keyboard = types.ReplyKeyboardMarkup(

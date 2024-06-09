@@ -12,7 +12,7 @@ class notifications(abstractBase):
         )
         self.connection.autocommit = True
 
-    def createTable(self):  #я храню только минуты от начала дня
+    def createTable(self):
         with self.connection.cursor() as cursor:
             cursor.execute(
                 """CREATE TABLE notifications(
@@ -36,6 +36,7 @@ class notifications(abstractBase):
             records = cursor.fetchall()
             return records
             # print(records)
+
     def deleteData(self):
         with self.connection.cursor() as cursor:
             command = """TRUNCATE TABLE notifications"""
@@ -44,6 +45,10 @@ class notifications(abstractBase):
         with self.connection.cursor() as cursor:
             command = """DROP TABLE notifications"""
             cursor.execute(command)
+    def deleteRecord(self, idRecord:tuple):
+        with self.connection.cursor() as cursor:
+            command = """DELETE FROM notifications WHERE notification_id = %s"""
+            cursor.execute(command, idRecord)
     def __del__(self):
         self.connection.close()
 

@@ -4,12 +4,6 @@ from fnmatch import fnmatch
 from datetime import datetime
 from dbFiles.tableStaff import staff
 
-# def convertMinutes(time):
-#     time = time.split(":")
-#     time = int(time[0]) * 60 + int(time[1])
-#     return time
-
-
 def getCurrentDate():
     day = str(datetime.now().day)
     month = str(datetime.now().month)
@@ -42,30 +36,32 @@ def checkPhoneNumber(phoneNumber : str):
         return "Формат номера некорректен"
     return "OK"
 
-def checkDate(date: str):
+def checkRecord(date: str, time: str):
     if not(fnmatch(date, "??.??.??") or fnmatch(date, "??.??.????")):
         return "Проверьте дату на соответствие формату"
-    if not(dateCompare(date, getCurrentDate())):
-        return "Введённая дата меньше текущей"
     alphabet = [str(i) for i in range(10)]
     if not(all([True if i in alphabet else False for i in date.replace(".", "")])):
         return "Дата должна состоять из цифр"
-    dateNormal = dateNormalized(date).split(".")
-    dateNormal = {"date":dateNormal[0], "month":dateNormal[1], "year":dateNormal[2]}
+    dateNormal = dateNormalized(date)
+    dictDate = dateNormal.split(".")
+    dictDate = {"date":dictDate[0], "month":dictDate[1], "year":dictDate[2]}
     try:
-        datetime(int(dateNormal["year"]), int(dateNormal["month"]), int(dateNormal["date"]))
+        datetime(int(dictDate["year"]), int(dictDate["month"]), int(dictDate["date"]))
     except:
         return "Введённая дата невозможна"
-    return "OK"
-
-def checkTime(time: str):
-    timeNormal = timeNormalized(time)
     correctHours = [f"{i:02}" for i in range(0, 24)]
     correctMinutes = [f"{i:02}" for i in range(0, 60)]
+
     if not(fnmatch(time, "??:??")):
         return "Некорректная запись времени"
+
+    timeNormal = getTimeDict(time)
     if not((timeNormal["hour"] in correctHours) and (timeNormal["minutes"] in correctMinutes)):
         return "Введённое время невозможно"
+    if recordCompare(dateNormal, time):
+        print(dateNormal, time)
+        return "Запись меньше текущих даты/времени"
+
     return "OK"
 
 def phoneNormalized(phoneNumber : str):
@@ -80,22 +76,47 @@ def dateNormalized(date: str):
     year = "20" + year if len(year) == 2 else year
     return f"{day}.{month}.{year}"
 
-def timeNormalized(time: str):
+def getTimeDict(time: str):
     time = time.split(":")
     timeDict = {"hour":time[0], "minutes":time[1]}
     return timeDict
 
 
-def timeCompare(timeVisit: str, timeCurrent: str):
-    timeVisit = int(timeVisit.replace(":", ""))
-    timeCurrent = int(timeCurrent.replace(":", ""))
-    return timeCurrent >= timeVisit
+def recordCompare(dateVisit, timeVisit):
+    dateVisit = dateVisit.replace(".", " ").split()
+    dateVisit = f"{dateVisit[2]}{dateVisit[1]}{dateVisit[0]}"
+    dateCurrent = getCurrentDate()
+    dateCurrent = dateCurrent.replace(".", " ").split()
+    dateCurrent = f"{dateCurrent[2]}{dateCurrent[1]}{dateCurrent[0]}"
 
-def dateCompare(dateVisit: str, dateCurrent:str):
-    dateVisit = int(dateVisit.replace(":", ""))
-    dateCurrent = int(dateCurrent.replace(":", ""))
-    return dateCurrent >= dateVisit
+    timeVisit = timeVisit.replace(":", "")
+    timeCurrent = getCurrentTime()
+    timeCurrent = timeCurrent.replace(":", "")
+
+    recordVisit = int(dateVisit + timeVisit)
+    recordCurrent = int(dateCurrent + timeCurrent)
+    return recordVisit <= recordCurrent
+
 
 
 def linkProcessing(phoneNumber, message):
     return "https://web.whatsapp.com/send?phone=" + phoneNumber + "&text=" + quote(message)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
