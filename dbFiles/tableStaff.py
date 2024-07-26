@@ -2,21 +2,17 @@ from dbFiles.abstractBase import abstractBase
 from dbFiles.databaseConfig import *
 import psycopg2
 import asyncio
-class staff(abstractBase):
-    def __init__(self):
-        self.connection = psycopg2.connect(
-            host=host,
-            user=user,
-            password=password,
-            database=db_name
-        )
-        self.connection.autocommit = True
+
+
+class Staff(abstractBase):
+    name = "staff"
+
 
     def createTable(self):
         with self.connection.cursor() as cursor:
             cursor.execute(
-                """CREATE TABLE staff(
-                    staff_id serial PRIMARY KEY,
+                f"""CREATE TABLE {self.name}(
+                    id serial PRIMARY KEY,
                     surname varchar(15) NOT NULL,
                     name varchar(15) NOT NULL,
                     patronymic varchar(15),
@@ -25,39 +21,68 @@ class staff(abstractBase):
                     phone varchar(12) NOT NULL
                     )"""
             )
+
+
     def insertToTable(self, data:tuple):
         with self.connection.cursor() as cursor:
-            command = """INSERT INTO staff VALUES(DEFAULT, %s, %s, %s, %s, %s, %s)"""
+            command = f"""INSERT INTO {self.name} VALUES(DEFAULT, %s, %s, %s, %s, %s, %s)"""
             cursor.execute(command, data)
+
 
     def getStatus(self, telegramId):
         with self.connection.cursor() as cursor:
-            command = """SELECT status FROM staff
-                         WHERE staff.telegram_id = %s"""
+            command = f"""SELECT status FROM {self.name}
+                         WHERE {self.name}.telegram_id = %s"""
             cursor.execute(command, (telegramId,))
-            return cursor.fetchall()[0][0]
+            try:
+                return cursor.fetchall()[0][0]
+            except:
+                return "customer"
+
+
     def getName(self, telegramId):
         with self.connection.cursor() as cursor:
-            command = """SELECT name FROM staff
+            command = f"""SELECT name FROM {self.name}
                          WHERE staff.telegram_id = %s"""
             cursor.execute(command, (telegramId,))
-            return cursor.fetchall()[0][0]
-    def selectData(self):
+            try:
+                return cursor.fetchall()[0][0]
+            except:
+                return "NoName"
+
+    def getPersonInfo(self, telegramId):
         with self.connection.cursor() as cursor:
-            command = """SELECT * FROM staff"""
-            cursor.execute(command)
-            records = cursor.fetchall()
-            return records
-    def deleteData(self):
+            command = f"""SELECT * FROM {self.name}
+                         WHERE {self.name}.telegram_id = %s"""
+            cursor.execute(command, (telegramId,))
+            try:
+                data = cursor.fetchall()[0]
+            except:
+                return "NULL"
+        columns = super().getColumnsNames()
+        personInfo = {column:info for column, info in zip(columns, data)}
+        return personInfo
+
+    def getPhoneByStatus(self, status: str):
         with self.connection.cursor() as cursor:
-            command = """TRUNCATE TABLE staff"""
-            cursor.execute(command)
+            command = f"""SELECT phone FROM {self.name} WHERE status = %s"""
+            cursor.execute(command, (status,))
+            usersPhones = cursor.fetchall()[0]
+        return usersPhones
+
+
+    def deleteRecordByTelegramId(self, telegram_id: str):
+        with self.connection.cursor() as cursor:
+            command = f"""DELETE FROM {self.name} WHERE telegram_id = %s"""
+            cursor.execute(command, (telegram_id,))
+
+
+
     def __del__(self):
         self.connection.close()
 
-#
-db = staff()
-# db.deleteData()
-# db.createTable()
-# db.insertToTable(("Шуруха", "Артем", "Викторович", "creator", "815109033", "+79614951406"))
-
+# db = Staff()
+# print(db.selectData())
+# print(db.getPhoneByStatus("admin"))
+# print(db.getPersonInfo('815109033'))
+# print(db.getColumnsNames())

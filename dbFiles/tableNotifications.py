@@ -2,60 +2,43 @@ from dbFiles.abstractBase import abstractBase
 from dbFiles.databaseConfig import *
 import psycopg2
 import asyncio
-class notifications(abstractBase):
-    def __init__(self):
-        self.connection = psycopg2.connect(
-            host=host,
-            user=user,
-            password=password,
-            database=db_name
-        )
-        self.connection.autocommit = True
+
+
+class Notifications(abstractBase):
+    name = "notifications"
 
     def createTable(self):
         with self.connection.cursor() as cursor:
             cursor.execute(
-                """CREATE TABLE notifications(
-                    notification_id serial PRIMARY KEY,
+                f"""CREATE TABLE {self.name}(
+                    id serial PRIMARY KEY,
+                    client_phone varchar(12) NOT NULL,
                     visit_date varchar(10) NOT NULL,
                     visit_time varchar(5) NOT NULL,
-                    client_phone varchar(12) NOT NULL,
-                    admin_id varchar(20), 
+                    admin_id varchar(20),
                     master_name varchar(20)
                     )"""
             )
     def insertToTable(self, data:tuple):
         with self.connection.cursor() as cursor:
-            command = """INSERT INTO notifications VALUES(DEFAULT, %s, %s, %s, %s, %s)"""
+            command = f"""INSERT INTO {self.name} VALUES(DEFAULT, %s, %s, %s, %s, %s)"""
             cursor.execute(command, data)
 
-    def selectData(self):
+    def getAdminIdById(self, id:str):
         with self.connection.cursor() as cursor:
-            command = """SELECT * FROM  notifications"""
-            cursor.execute(command)
-            records = cursor.fetchall()
-            return records
-            # print(records)
+            command = f"""SELECT admin_id FROM {self.name} WHERE id = %s"""
+            cursor.execute(command, (id, ))
+            adminId = cursor.fetchall()[0][0]
+        return adminId
 
-    def deleteData(self):
-        with self.connection.cursor() as cursor:
-            command = """TRUNCATE TABLE notifications"""
-            cursor.execute(command)
-    def deleteTable(self):
-        with self.connection.cursor() as cursor:
-            command = """DROP TABLE notifications"""
-            cursor.execute(command)
-    def deleteRecord(self, idRecord:tuple):
-        with self.connection.cursor() as cursor:
-            command = """DELETE FROM notifications WHERE notification_id = %s"""
-            cursor.execute(command, idRecord)
     def __del__(self):
         self.connection.close()
 
 
 
-# db = notifications()
-# db.deleteDB()
+# db = Notifications()
+#
 # db.createTable()
+# db.deleteTable()
 # db.insertToTable(("26.03.2024", 226, "+79614951406"))
 # db.selectData()
