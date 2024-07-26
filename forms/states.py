@@ -1,5 +1,9 @@
 from aiogram.fsm.state import StatesGroup, State
 class Status(StatesGroup):
-    waitingCustomerInfo = State() # Задаем состояние
+    waitingUserInfo = State() # Задаем состояние
     waitingMessengerSelection = State()
     waitingAdminInfo = State()
+    waitingRecordInfo = State()
+    waitingDeletionWorker = State()
+    waitingIdDeletableRecord = State()
+    waitingCommandPassword = State()
