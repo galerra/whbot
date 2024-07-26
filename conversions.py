@@ -2,7 +2,25 @@ import fnmatch
 from urllib.parse import quote #quote нужна для преобразования текста в ссылку
 from fnmatch import fnmatch
 from datetime import datetime
-from dbFiles.tableStaff import staff
+from user import User
+from dbFiles.tableStaff import Staff
+
+def getCurrentWeekday():
+    current_weekday = datetime.today().weekday()
+    return current_weekday
+
+def getCurrentDay():
+    current_day = datetime.now().day
+    return current_day
+
+def getCurrentMonth():
+    current_month = datetime.now().month
+    return current_month
+
+def getCurrentYear():
+    current_year = datetime.now().year
+    return current_year
+
 
 def getCurrentDate():
     day = str(datetime.now().day)
@@ -14,55 +32,6 @@ def getCurrentDate():
 def getCurrentTime():
     return str(datetime.now().time())[:5]
 
-def customerInfoProcessing(Message):
-    message = Message.text.split()
-    info = {"number":message[0], "date":message[1], "time":message[2], "adminId":Message.from_user.id}
-    if len(message) == 4:
-        info["masterName"] = message[3]
-    else:
-        masterId = str(Message.from_user.id)
-        db = staff()
-        masterName = db.getName(masterId)
-        info["masterName"] = masterName
-    return info
-
-def checkPhoneNumber(phoneNumber : str):
-    alphabet = "+0123456789" # пробел и "-" нужны для тех, кто пишет 8 999 99 99 или 8-999-99-99
-    phoneNumber = phoneNormalized(phoneNumber)
-    for symbol in phoneNumber:
-        if not(symbol in alphabet):
-            return "Проверьте корректность символов в номере!"
-    if not(fnmatch(phoneNumber, "+7??????????") or fnmatch(phoneNumber, "8??????????")):
-        return "Формат номера некорректен"
-    return "OK"
-
-def checkRecord(date: str, time: str):
-    if not(fnmatch(date, "??.??.??") or fnmatch(date, "??.??.????")):
-        return "Проверьте дату на соответствие формату"
-    alphabet = [str(i) for i in range(10)]
-    if not(all([True if i in alphabet else False for i in date.replace(".", "")])):
-        return "Дата должна состоять из цифр"
-    dateNormal = dateNormalized(date)
-    dictDate = dateNormal.split(".")
-    dictDate = {"date":dictDate[0], "month":dictDate[1], "year":dictDate[2]}
-    try:
-        datetime(int(dictDate["year"]), int(dictDate["month"]), int(dictDate["date"]))
-    except:
-        return "Введённая дата невозможна"
-    correctHours = [f"{i:02}" for i in range(0, 24)]
-    correctMinutes = [f"{i:02}" for i in range(0, 60)]
-
-    if not(fnmatch(time, "??:??")):
-        return "Некорректная запись времени"
-
-    timeNormal = getTimeDict(time)
-    if not((timeNormal["hour"] in correctHours) and (timeNormal["minutes"] in correctMinutes)):
-        return "Введённое время невозможно"
-    if recordCompare(dateNormal, time):
-        print(dateNormal, time)
-        return "Запись меньше текущих даты/времени"
-
-    return "OK"
 
 def phoneNormalized(phoneNumber : str):
     phoneNumber.replace("-","").replace("(", "").replace(")", "").replace(" ", "")
@@ -81,33 +50,28 @@ def getTimeDict(time: str):
     timeDict = {"hour":time[0], "minutes":time[1]}
     return timeDict
 
-
-def recordCompare(dateVisit, timeVisit):
-    dateVisit = dateVisit.replace(".", " ").split()
-    dateVisit = f"{dateVisit[2]}{dateVisit[1]}{dateVisit[0]}"
-    dateCurrent = getCurrentDate()
-    dateCurrent = dateCurrent.replace(".", " ").split()
-    dateCurrent = f"{dateCurrent[2]}{dateCurrent[1]}{dateCurrent[0]}"
-
-    timeVisit = timeVisit.replace(":", "")
-    timeCurrent = getCurrentTime()
-    timeCurrent = timeCurrent.replace(":", "")
-
-    recordVisit = int(dateVisit + timeVisit)
-    recordCurrent = int(dateCurrent + timeCurrent)
-    return recordVisit <= recordCurrent
-
-
+def getDateDict(date: str):
+    date = date.split(".")
+    dateDict = {"day": date[0], "month": date[1], "year": date[2]}
+    return dateDict
 
 def linkProcessing(phoneNumber, message):
     return "https://web.whatsapp.com/send?phone=" + phoneNumber + "&text=" + quote(message)
 
 
+def getTextSortingRecords(records: list):
+    db = Staff()
+    workers = db.selectData()
+    workers = [User(user[5]) for user in workers]
 
-
-
-
-
+    text = ""
+    for worker in workers:
+        text += f"{worker.surname} {worker.name} {worker.patronymic}:\n"
+        for record in records:
+            if record.adminId == worker.telegramId:
+                text += f"{record.numberPhone} {record.date} {record.time}\n"
+        text += "\n"
+    return text
 
 
 
