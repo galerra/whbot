@@ -1,46 +1,53 @@
 from selenium import webdriver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.firefox.service import Service
 from webdriver_manager.firefox import GeckoDriverManager
+from webdriver_manager.chrome import ChromeDriverManager
 from conversions import linkProcessing
+from webdriver_manager.core.os_manager import ChromeType
+import undetected_chromedriver as driver
+import time
 
-# def clickOnTextBox():
-#     pg.moveTo(getScreenSize()["width"] * 0.694, getScreenSize()["height"] * 0.964)  # Moves the cursor the the message bar in Whatsapp
-#     pg.click()
-
-
-
-# def closeWhatsapp():
-#     _system = system().lower()
-#     if _system in ("windows", "linux"):
-#         pg.hotkey("ctrl", "w")
-#     elif _system == "darwin":
-#         pg.hotkey("command", "w")
-#     else:
-#         raise Warning(f"{_system} not supported!")
-#     pg.press("enter")
 
 def openWhatsapp(userPhone, message, driver):
     driver.get(linkProcessing(userPhone, message))
 
 def chromeSetup():
-    options = webdriver.FirefoxOptions()
+    # service = Service(executable_path='C:\\Users\\Lenovo\\.wdm\\d'
+    #                                   '+rivers\\chromedriver\\win64\\125.0.6422.141\\chromedriver-win32\\chromedriver.exe')
+    #options = webdriver.FirefoxOptions()
+    options = webdriver.ChromeOptions()
+    # options.add_argument('--headless')
     options.add_argument('--allow-profiles-outside-user-dir')
     options.add_argument('--enable-profile-shortcut-manager')
     options.add_argument( r'user-data-dir=C:\Users\Lenovo\Desktop\whbot\sel')                                 # УКАЖИТЕ ПУТЬ ГДЕ ЛЕЖИТ ВАШ ФАЙЛ. Советую создать отдельную папку.
     options.add_argument('--profile-directory=Profile 1')
     options.add_argument('--profiling-flush=n')
     options.add_argument('--enable-aggressive-domstorage-flushing')
-    driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()), options=options)
+    driver = webdriver.Chrome(options=options)
+    # driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()), options=options)
     return driver
 
+
 def clickOnSendButtom(driver, wait):
-    # wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR,
-    #                                        "#main > footer > div._2lSWV._3cjY2.copyable-area > div > span:nth-child(2) > div > div._1VZX7 > div._2xy_p._3XKXx > button > span")))
     wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR,
-                                           "#main > footer > div._ak1k._ahmw.copyable-area > div > span:nth-child(2) > div > div._ak1r > div._ak1t._ak1u > button > span")))
-    # driver.find_element(By.CSS_SELECTOR,
-    #                     "#main > footer > div._2lSWV._3cjY2.copyable-area > div > span:nth-child(2) > div > div._1VZX7 > div._2xy_p._3XKXx > button > span").click()
+                                           "#main > footer > div._ak1k.xnpuxes.copyable-area > div > span:nth-child(2) > div > div._ak1r > div._ak1t._ak1u > button > span")))
     driver.find_element(By.CSS_SELECTOR,
-                            "#main > footer > div._ak1k._ahmw.copyable-area > div > span:nth-child(2) > div > div._ak1r > div._ak1t._ak1u > button").click()
+                        "#main > footer > div._ak1k.xnpuxes.copyable-area > div > span:nth-child(2) > div > div._ak1r > div._ak1t._ak1u > button > span").click()
+
+
+def holdingWhatsapp(wait):
+    driver = chromeSetup()
+    openWhatsapp("", "", driver)
+    time.sleep(20)
+    driver.save_screenshot('wh.png')
+    time.sleep(20)
+    driver.save_screenshot('wh.png')
+    time.sleep(20)
+    time.sleep(wait)
+
+
+
+
+
