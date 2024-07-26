@@ -14,8 +14,7 @@ def openWhatsapp(userPhone, message, driver):
     driver.get(linkProcessing(userPhone, message))
 
 def chromeSetup():
-    # service = Service(executable_path='C:\\Users\\Lenovo\\.wdm\\d'
-    #                                   '+rivers\\chromedriver\\win64\\125.0.6422.141\\chromedriver-win32\\chromedriver.exe')
+    service = Service(executable_path='/usr/local/bin/chromedriver_linux64')
     #options = webdriver.FirefoxOptions()
     options = webdriver.ChromeOptions()
     # options.add_argument('--headless')
@@ -25,7 +24,7 @@ def chromeSetup():
     options.add_argument('--profile-directory=Profile 1')
     options.add_argument('--profiling-flush=n')
     options.add_argument('--enable-aggressive-domstorage-flushing')
-    driver = webdriver.Chrome(options=options)
+    #driver = webdriver.Chrome(options=options)
     # driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()), options=options)
     return driver
 
