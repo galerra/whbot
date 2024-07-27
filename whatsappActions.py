@@ -14,7 +14,7 @@ def openWhatsapp(userPhone, message, driver):
     driver.get(linkProcessing(userPhone, message))
 
 def chromeSetup():
-    service = Service(executable_path='/root/browser/chromedriver')
+    service = Service(executable_path='/home/galerra/browser/chromedriver')
     #options = webdriver.FirefoxOptions()
     options = webdriver.ChromeOptions()
     # options.add_argument('--headless')
